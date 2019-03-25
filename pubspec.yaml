@@ -1,6 +1,6 @@
 name: di_container
-description: Dart library for dependency injection with the container.
-version: 1.0.1
+description: Dart library for dependency injection with the container. Easy to register and get get dependency without assign dependency's type , except you want cast type, you have to assign dependency's type.
+version: 1.0.2
 author: phamnhuvu <phamnhuvu.dev@gmail.com>
 homepage: https://github.com/phamnhuvu-dev/dart_di_container
 

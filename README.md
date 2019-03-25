@@ -95,4 +95,4 @@ class C2 implements C {
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: http://example.com/issues/replaceme
+[tracker]: https://github.com/phamnhuvu-dev/dart_di_container/issues/new
