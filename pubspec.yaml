@@ -1,8 +1,8 @@
 name: di_container
 description: Dart library for dependency injection with the container.
-version: 1.0.0
+version: 1.0.1
 author: phamnhuvu <phamnhuvu.dev@gmail.com>
-# homepage: https://www.example.com
+homepage: https://github.com/phamnhuvu-dev/dart_di_container
 
 environment:
   sdk: '>=2.1.0 <3.0.0'
