@@ -4,8 +4,7 @@ import 'package:test/test.dart';
 void main() {
   group('A group of tests for Provide type', () {
     setUp(() {
-      Injector.register(
-        type: Type.provide,
+      Injector.provide(
         builder: () => A(),
       );
     });
@@ -37,8 +36,7 @@ void main() {
 
   group('A group of tests for Singleton type', () {
     setUp(() {
-      Injector.register(
-        type: Type.singleton,
+      Injector.single(
         builder: () => A(),
       );
     });
@@ -69,14 +67,12 @@ void main() {
 
   group('A group of tests for multiple instance with "name" key', () {
     setUp(() {
-      Injector.register(
-        type: Type.singleton,
+      Injector.single(
         name: "C1",
         builder: () => C("C1"),
       );
 
-      Injector.register(
-        type: Type.singleton,
+      Injector.single(
         name: "C2",
         builder: () => C("C2"),
       );

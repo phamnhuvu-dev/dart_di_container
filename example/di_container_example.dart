@@ -14,8 +14,7 @@ main() {
    */
 
   // Type Provide
-  Injector.register(
-    type: Type.provide,
+  Injector.provide(
     builder: () => A(),
   );
   A a1 = Injector.get();
@@ -26,8 +25,7 @@ main() {
   print(a1.hashCode != a2.hashCode);
 
   // Type Singleton
-  Injector.register(
-    type: Type.singleton,
+  Injector.single(
     builder: () => B(),
   );
   B b1 = Injector.get();
@@ -39,13 +37,11 @@ main() {
 
 
   // with "name" Key
-  Injector.register<C>(
-    type: Type.singleton,
+  Injector.single<C>(
     name: "1",
     builder: () => C1(),
   );
-  Injector.register<C>(
-    type: Type.singleton,
+  Injector.single<C>(
     name: "2",
     builder: () => C2(),
   );

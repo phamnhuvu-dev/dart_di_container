@@ -8,8 +8,6 @@ Created from templates made available by Stagehand under a BSD-style
 A simple usage example:
 
 ```dart
-import 'package:di_container/di_container.dart';
-
 main() {
   /**
    * You don't need assign type,
@@ -24,8 +22,7 @@ main() {
    */
 
   // Type Provide
-  Injector.register(
-    type: Type.provide,
+  Injector.provide(
     builder: () => A(),
   );
   A a1 = Injector.get();
@@ -36,8 +33,7 @@ main() {
   print(a1.hashCode != a2.hashCode);
 
   // Type Singleton
-  Injector.register(
-    type: Type.singleton,
+  Injector.single(
     builder: () => B(),
   );
   B b1 = Injector.get();
@@ -49,13 +45,11 @@ main() {
 
 
   // with "name" Key
-  Injector.register<C>(
-    type: Type.singleton,
+  Injector.single<C>(
     name: "1",
     builder: () => C1(),
   );
-  Injector.register<C>(
-    type: Type.singleton,
+  Injector.single<C>(
     name: "2",
     builder: () => C2(),
   );
@@ -88,7 +82,6 @@ class C2 implements C {
     print("Hello C2");
   }
 }
-
 ```
 
 ## Features and bugs

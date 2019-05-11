@@ -1,6 +1,5 @@
 import 'package:di_container/src/builder.dart';
 import 'package:di_container/src/utils.dart';
-import 'package:di_container/src/injector_type.dart';
 
 /// class [Injector] contain a [_container] variable and functions to manage [Builder]s
 class Injector {
@@ -8,17 +7,24 @@ class Injector {
 
   static final _container = Map<String, Builder<dynamic>>();
 
-  /// [register] function create new [Builder] to manage state of dependency
-  /// How [Builder] return a dependency depends on [Type]
-  /// [Builder] is stored in [_container] with a key combine by [D] type and [name]
-  static void register<D>({
-    Type type,
+  static void single<D>({ String name,
+    BuilderFunc<D> builder,}) {
+    _register(isSingle: true, name: name, builder: builder);
+  }
+
+  static void provide<D>({ String name,
+    BuilderFunc<D> builder,}) {
+    _register(isSingle: false, name: name, builder: builder);
+  }
+
+  static void _register<D>({
+    bool isSingle,
     String name,
     BuilderFunc<D> builder,
   }) {
-    assert(type != null, builder != null);
+    assert(builder != null);
     String key = getKey(D, name);
-    _container[key] = Builder<D>(type, builder);
+    _container[key] = Builder<D>(isSingle, builder);
   }
 
   /// [get] function return a dependency depend on dependency's type [D] and parameter [name]
